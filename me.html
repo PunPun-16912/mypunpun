@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+	<title>Document</title>
+
+	<script>
+		$(document).ready(function () {
+			$("#flip").click(function () {
+				$("#panel").slideDown(5000);
+			});
+			$("#stop").click(function () {
+				$("#panel").stop();
+			});
+		});
+	</script>
+
+	<script>
+		$(document).ready(function () {
+			// Your existing JavaScript code
+
+			// Function to slide the carousel
+			var currentSlide = 0;
+			var totalSlides = $(".carousel-image").length;
+
+			function slideCarousel(direction) {
+				if (direction === 'next') {
+					currentSlide = (currentSlide + 1) % totalSlides;
+				} else {
+					currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+				}
+				var translateX = -currentSlide * 50;
+				$(".carousel").css("transform", "translateX(" + translateX + "vw)");
+			}
+
+			$(".carousel-image").on("click", function () {
+				// Slide to the next image when an image is clicked
+				slideCarousel('next');
+			});
+
+			$("#carousel-next").on("click", function () {
+				// Slide to the next image when the next button is clicked
+				slideCarousel('next');
+			});
+
+			$("#carousel-prev").on("click", function () {
+				// Slide to the previous image when the previous button is clicked
+				slideCarousel('prev');
+			});
+		});
+	</script>
+
+	<script>
+		$(document).ready(function () {
+			var $parallaxSection = $('.parallax-section');
+
+			// กำหนดความเร็วในการ Parallax Scrolling
+			var scrollSpeed = 0.5;
+
+			$(window).scroll(function () {
+				var windowScroll = $(this).scrollTop();
+				$parallaxSection.css('background-position', '50% ' + (-windowScroll * scrollSpeed) + 'px');
+			});
+		});
+	</script>
+
+</head>
+
+<head>
+	<style>
+		.bgg {
+			background: url(1102.PNG);
+			background-size: 25vw;
+			animation: backgroundMove 20s linear infinite;
+		}
+
+		.parallax-section {
+			background-attachment: fixed;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+			height: 100vh;
+			/* ความสูงของส่วน Parallax */
+		}
+
+		@keyframes backgroundMove {
+			0% {
+				background-position: 0 0;
+			}
+
+			100% {
+				background-position: 0 100%;
+			}
+		}
+
+		.header {
+			background-color: blue;
+			text-align: center;
+			font-size: 35px;
+			color: white;
+			padding: 2vw;
+			border: 1px solid #ccc;
+			border-radius: 25px
+		}
+
+		.header2 {
+			background-color: #F2CE06;
+			text-align: center;
+			font-size: 30px;
+			color: white;
+			padding: 2vw;
+			border: 1px solid #ccc;
+			border-radius: 25px
+		}
+
+		.header3 {
+			background-color: green;
+			text-align: center;
+			font-size: 15px;
+			color: white;
+			padding: 2vw;
+			border: 1px solid #ccc;
+			border-radius: 25px
+		}
+
+		.cen {
+			padding: 2vw;
+			text-align: center;
+			font-size: 15px;
+
+		}
+
+		.colr {
+			background-color: #00A8B1;
+			padding: 20px;
+			border: 1px solid #ccc;
+			border-radius: 25px;
+		}
+
+		.colr2 {
+			background-color: #91BEB7;
+			padding: 2vw;
+			border: 1px solid #ccc;
+			border-radius: 25px;
+		}
+
+		.column {
+			float: left;
+			width: 33.33%;
+			padding: 15px;
+		}
+
+		.row::after {
+			content: "";
+			display: table;
+			clear: both;
+		}
+
+		.btn {
+			padding: 5%;
+			border-radius: 20%;
+			max-height: 17vh;
+			max-width: 23vh;
+		}
+
+		#panel,
+		#flip {
+			text-align: center;
+			color: white;
+		}
+
+		#panel {
+			display: none;
+		}
+
+		.responsive-image {
+			max-width: 100%;
+			height: auto;
+			border-radius: 25px;
+		}
+
+		@keyframes changeColor {
+			0% {
+				background-color: lightgreen;
+			}
+
+			25% {
+				background-color: purple;
+			}
+
+			50% {
+				background-color: lightblue;
+			}
+
+			75% {
+				background-color: tomato;
+			}
+
+			100% {
+				background-color: whitesmoke;
+			}
+		}
+
+		#profile-header {
+			animation: changeColor 10s infinite;
+		}
+
+		.responsive-video {
+			width: 50%;
+			max-height: 40%;
+			object-fit: contain;
+			border-radius: 15px;
+		}
+
+		.color-change:hover {
+			background-color: blue;
+			color: white;
+		}
+
+		/* Your existing styles */
+
+		.carousel-container {
+			display: flex;
+			overflow: hidden;
+		}
+
+		.carousel {
+			display: flex;
+			transition: transform 1.0s ease-in-out;
+		}
+
+		.carousel-image {
+			flex: 0 0 auto;
+			width: 50vw;
+			cursor: pointer;
+		}
+
+		.carousel-image {
+			flex: 0 0 auto;
+			width: 50vw;
+			cursor: pointer;
+			margin-right: 10px;
+			/* Add some margin to create space between images */
+		}
+	</style>
+</head>
+
+
+<body>
+	<div class="bgg media">
+		<h1 class="header" id="profile-header" style="background-color: skyblue;"><i class="bi bi-train-front"></i> My
+			Profile <i class="bi bi-train-front"></i></h1>
+		<center><img src="4305.png" class="responsive-image"
+				style="max-height: 50vh; max-width: 50vw;"></center>
+		<br>
+		<div class="colr">
+			<h1 style="color: white;">
+				<div id="flip">ประวัติส่วนตัว</div>
+			</h1>
+			<center>
+				<div id="panel">
+					<p style="color:white;">ชื่อ นราธิป แตงอ่อน อายุ 21 ปี วันเกิดวันที่ 4 ธันวาคม 2544</p>
+					<p style="color:white;">จบการศึกษาชั้นประถมศึกษาจาก: โรงเรียนอยู่เย็นวิทยา</p>
+					<p style="color:white;">จบการศึกษาชั้นมัธยมศึกษาจาก: โรงเรียนโพธิสารพิทยากร</p>
+				</div>
+			</center>
+		</div>
+		<br>
+		<center>
+			<video controls autoplay muted class="responsive-video">
+				<source src="videot.mp4" type="video/mp4">
+				Your browser does not support the video tag.
+			</video>
+		</center>
+		<br>
+		<center>
+			<div class="colr2">
+				<h1 style="color: white;">
+					อาหารที่ชอบ & งานอดิเรก
+				</h1>
+				<p style="color: white;">อาหารที่ชอบ : ก๋วยเตี๋ยว</p>
+				<p style="color: white;">งานอดิเรก : ถ่ายภาพ , การนั่งรถไฟ</p>
+
+			</div>
+		</center>
+		<br>
+		<div class="media">
+			<div class="carousel-container">
+				<div class="carousel">
+					<img src="1106.jpg" class="carousel-image responsive-image ">
+					<img src="3182.jpg" class="carousel-image responsive-image ">
+					<img src="01.jpg" class="carousel-image responsive-image ">
+					<img src="02.jpg" class="carousel-image responsive-image ">
+					<img src="03.jpg" class="carousel-image responsive-image ">
+				</div>
+
+			</div>
+		</div>
+
+		<br>
+		<br>
+		<h2 class="header2">ALL</h2>
+		<center>
+			<div class="row responsive-image">
+				<div class="wraper column responsive-image">
+					<button class="btn align-items-center color-change" type="submit"
+						style="background-color: tomato; color: white;">
+						<a href="https://pilot.cp.su.ac.th/usr/u630710745/Mytrip">My trip</a>
+					</button>
+				</div>
+				<div class="column responsive-image">
+					<button class="btn align-items-center color-change" type="submit"
+						style="background-color: lightblue; color: white;">
+						<a href="https://pilot.cp.su.ac.th/usr/u630710745/calculate">CALCULATOR</a>
+					</button>
+				</div>
+				<div class="column responsive-image">
+					<button class="btn align-items-center color-change" type="submit"
+						style="background-color: green; color: white;">
+						<a href="https://pilot.cp.su.ac.th/usr/u630710745/easymath">Easy Math</a>
+					</button>
+				</div>
+				<div class="column responsive-image">
+					<button class="btn align-items-center color-change" type="submit"
+						style="background-color: red; color: white;">
+						<center><a href="https://pilot.cp.su.ac.th/usr/u630710745/Mul.php?n=4">multiplication table</a>
+						</center>
+					</button>
+				</div>
+				<div class="column responsive-image">
+					<button class="btn align-items-center color-change" type="submit"
+						style="background-color: blue; color: white;">
+						<a href="st.php">PALINDROM</a>
+					</button>
+				</div>
+				<div class="column responsive-image">
+					<button class="btn align-items-center color-change" type="submit"
+						style="background-color: lightgray; color: white;">
+						<a href="telbook.php">TELBOOK</a>
+					</button>
+				</div>
+				<div class="column responsive-image">
+					<button class="btn align-items-center color-change" type="submit"
+						style="background-color: crimson; color: white;">
+						<a href="cookie.php">Cookie</a>
+					</button>
+				</div>
+			</div>
+			
+		</center>
+	</div>
+
+
+</html>
