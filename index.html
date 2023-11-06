@@ -21,17 +21,6 @@
 
 	<script>
 		$(document).ready(function () {
-			$("#flip").click(function () {
-				$("#panel").slideDown(5000);
-			});
-			$("#stop").click(function () {
-				$("#panel").stop();
-			});
-		});
-	</script>
-
-	<script>
-		$(document).ready(function () {
 			// Your existing JavaScript code
 
 			// Function to slide the carousel
@@ -64,21 +53,6 @@
 			});
 		});
 	</script>
-
-	<script>
-		$(document).ready(function () {
-			var $parallaxSection = $('.parallax-section');
-
-			// กำหนดความเร็วในการ Parallax Scrolling
-			var scrollSpeed = 0.1;
-
-			$(window).scroll(function () {
-				var windowScroll = $(this).scrollTop();
-				$parallaxSection.css('background-position', '50% ' + (-windowScroll * scrollSpeed) + 'px');
-			});
-		});
-	</script>
-
 </head>
 
 <head>
@@ -92,6 +66,7 @@
 			background-size: 25vw;
 			animation: backgroundMove 20s linear infinite;
 		}
+
 		.bgg2 {
 			background: url(4532.PNG);
 			background-size: 25vw;
@@ -110,39 +85,10 @@
 			}
 		}
 
-		/* font */
-		@font-face {
-			font-family: myFirstFont;
-			src: url(sansation_bold.woff);
-			font-weight: bold;
-		}
-
-
-
 		.header {
 			background-color: blue;
 			text-align: center;
 			font-size: 35px;
-			color: white;
-			padding: 2vw;
-			border: 1px solid #ccc;
-			border-radius: 25px
-		}
-
-		.header2 {
-			background-color: #F2CE06;
-			text-align: center;
-			font-size: 30px;
-			color: white;
-			padding: 1vw;
-			border: 1px solid #ccc;
-			border-radius: 25px
-		}
-
-		.header3 {
-			background-color: green;
-			text-align: center;
-			font-size: 15px;
 			color: white;
 			padding: 2vw;
 			border: 1px solid #ccc;
@@ -172,34 +118,6 @@
 			margin: 0 3vw;
 		}
 
-		.column {
-			float: left;
-			width: 33.33%;
-			padding: 15px;
-		}
-
-		.row::after {
-			content: "";
-			display: table;
-			clear: both;
-		}
-
-		.btn {
-			padding: 5%;
-			border-radius: 20%;
-			max-height: 17vh;
-			max-width: 23vh;
-		}
-
-		#panel,
-		#flip {
-			text-align: center;
-			color: white;
-		}
-
-		#panel {
-			display: none;
-		}
 
 		.responsive-image {
 			max-width: 100%;
@@ -213,7 +131,7 @@
 			}
 
 			25% {
-				background-color: purple;
+				background-color: lightpink;
 			}
 
 			50% {
@@ -225,7 +143,7 @@
 			}
 
 			100% {
-				background-color: whitesmoke;
+				background-color: lightseagreen;
 			}
 		}
 
@@ -238,11 +156,6 @@
 			max-height: 40%;
 			object-fit: contain;
 			border-radius: 15px;
-		}
-
-		.color-change:hover {
-			background-color: blue;
-			color: white;
 		}
 
 		/* Your existing styles */
@@ -261,13 +174,7 @@
 			flex: 0 0 auto;
 			width: 50vw;
 			cursor: pointer;
-		}
-
-		.carousel-image {
-			flex: 0 0 auto;
-			width: 50vw;
-			cursor: pointer;
-			margin-right: 10px;
+			padding: 1%;
 			/* Add some margin to create space between images */
 		}
 	</style>
@@ -290,7 +197,6 @@
 						<p style="color:white;">จบการศึกษาชั้นมัธยมศึกษาจาก: โรงเรียนโพธิสารพิทยากร</p>
 					</center>
 		</div>
-	</div>
 		<center>
 			<div class="colr2">
 				<h1 style="color: white;">งานอดิเรก</h1>
@@ -299,8 +205,8 @@
 				<p style="color: white;">แต่งภาพ , วาดภาพ</p>
 			</div>
 		</center>
+	</div>
 
-	
 	<div class="bgg2 media">
 		<br>
 
@@ -322,56 +228,5 @@
 			</div>
 		</div>
 	</div>
-	<!---
-		<br>
-		<br>
-		<h2 class="header2">ALL</h2>
-		<center>
-			<div class="row responsive-image">
-				<div class="wraper column responsive-image">
-					<button class="btn align-items-center color-change" type="submit"
-						style="background-color: tomato; color: white;">
-						<a href="https://pilot.cp.su.ac.th/usr/u630710745/Mytrip">My trip</a>
-					</button>
-				</div>
-				<div class="column responsive-image">
-					<button class="btn align-items-center color-change" type="submit"
-						style="background-color: lightblue; color: white;">
-						<a href="https://pilot.cp.su.ac.th/usr/u630710745/calculate">CALCULATOR</a>
-					</button>
-				</div>
-				<div class="column responsive-image">
-					<button class="btn align-items-center color-change" type="submit"
-						style="background-color: green; color: white;">
-						<a href="https://pilot.cp.su.ac.th/usr/u630710745/easymath">Easy Math</a>
-					</button>
-				</div>
-				<div class="column responsive-image">
-					<button class="btn align-items-center color-change" type="submit"
-						style="background-color: red; color: white;">
-						<center><a href="https://pilot.cp.su.ac.th/usr/u630710745/Mul.php?n=4">multiplication table</a>
-						</center>
-					</button>
-				</div>
-				<div class="column responsive-image">
-					<button class="btn align-items-center color-change" type="submit"
-						style="background-color: blue; color: white;">
-						<a href="st.php">PALINDROM</a>
-					</button>
-				</div>
-				<div class="column responsive-image">
-					<button class="btn align-items-center color-change" type="submit"
-						style="background-color: lightgray; color: white;">
-						<a href="telbook.php">TELBOOK</a>
-					</button>
-				</div>
-				<div class="column responsive-image">
-					<button class="btn align-items-center color-change" type="submit"
-						style="background-color: crimson; color: white;">
-						<a href="cookie.php">Cookie</a>
-					</button>
-				</div>
-			</div>
-		</center>
-	</div>-->
+
 </html>
